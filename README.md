@@ -157,38 +157,6 @@ curl http://localhost:3000/votes/statistics
 - **Método**: GET
 - **URL**: `http://localhost:3000/votes/statistics`
 
-## Estadísticas de votación
-
-El sistema genera estadísticas en tiempo real que incluyen:
-
-- **Total de votos**: Número total de votos emitidos
-- **Votos por candidato**: Desglose detallado por cada candidato
-- **Porcentaje de votación**: Porcentaje que representa cada candidato del total
-- **Información del candidato**: Nombre y partido político
-
-### Ejemplo de respuesta de estadísticas:
-```json
-{
-  "totalVotes": 150,
-  "statistics": [
-    {
-      "candidateId": 1,
-      "candidateName": "María González",
-      "candidateParty": "Partido Liberal",
-      "voteCount": 85,
-      "percentage": 56.67
-    },
-    {
-      "candidateId": 2,
-      "candidateName": "Carlos Rodríguez",
-      "candidateParty": "Partido Conservador",
-      "voteCount": 65,
-      "percentage": 43.33
-    }
-  ]
-}
-```
-
 ### Captura de estadísticas generadas
 
 La siguiente imagen muestra un ejemplo de las estadísticas generadas por el sistema, donde se pueden visualizar los resultados de votación en tiempo real con la distribución de votos por candidato:
