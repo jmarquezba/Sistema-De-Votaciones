@@ -3,7 +3,7 @@ import { Sequelize } from 'sequelize';
 export const sequelize = new Sequelize('sistema_de_votaciones', 'root', 'dataPassword123', {
   host: 'localhost',
   port: 3306,
-  dialect: 'mysql',
+  dialect: "mysql",
   logging: false,
 });
 
@@ -12,7 +12,7 @@ export const connectDB = async () => {
     await sequelize.authenticate();
     console.log('Conexión exitosa la base de datos.');
 
-    await sequelize.sync({ force: false });
+    await sequelize.sync();
     console.log('Modelos sincronizados con la base de datos.');
     
   } catch (error) {

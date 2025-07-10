@@ -37,5 +37,5 @@ export const vote = sequelize.define('vote', {
 voter.hasOne(vote, {foreignKey: 'voter_id'});
 vote.belongsTo(voter, {foreignKey: 'voter_id'});
 
-candidate.hasMany(vote, {foreignKey: 'candidate_id'});
+candidate.hasMany(vote, {foreignKey: 'candidate_id', as: 'candidateVotes'});
 vote.belongsTo(candidate, {foreignKey: 'candidate_id'});
