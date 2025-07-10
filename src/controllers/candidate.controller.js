@@ -2,7 +2,7 @@ import { voter } from '../models/voter.js'
 import { candidate } from '../models/candidate.js'
 import { where, Op } from 'sequelize'
 
-export const getAllcandidates = async (req, res) => {
+export const getAllCandidates = async (req, res) => {
     const candidates = await candidate.findAll()
     res.json(candidates)
 }

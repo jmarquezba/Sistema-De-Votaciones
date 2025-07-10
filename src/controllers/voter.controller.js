@@ -14,7 +14,7 @@ export const getVoterById = async (req, res) => {
     res.json(voterData)
 }
 
-export const createVoter = async (req, res) => {
+export const registerVoter = async (req, res) => {
     const { name, email } = req.body
 
     const verifyCandidate = await candidate.findOne({ where: { name : { [Op.iLike]: name }}})
