@@ -1,9 +1,21 @@
-import { createPool } from 'mysql2/promise'
+import { Sequelize } from 'sequelize';
 
-export const pool = createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'dataPassword123',
-    port: 3306,
-    database: 'sistema_de_votaciones'
-})
+export const sequelize = new Sequelize('sistema_de_votaciones', 'root', 'dataPassword123', {
+  host: 'localhost',
+  port: 3306,
+  dialect: 'mysql',
+  logging: false,
+});
+
+export const connectDB = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Conexión exitosa la base de datos.');
+
+    await sequelize.sync({ force: false });
+    console.log('Modelos sincronizados con la base de datos.');
+    
+  } catch (error) {
+    console.error('Fallo en la conexión a la base de datos:', error);
+  }
+}
