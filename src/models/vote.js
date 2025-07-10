@@ -33,6 +33,7 @@ export const vote = sequelize.define('vote', {
     tableName: 'vote',
 });
 
+//Definición de las relaciones
 voter.hasOne(vote, {foreignKey: 'voter_id'});
 vote.belongsTo(voter, {foreignKey: 'voter_id'});
 
