@@ -1,0 +1,25 @@
+CREATE DATABASE IF NOT EXISTS sistema_de_votaciones;
+
+USE sistema_de_votaciones;
+
+CREATE TABLE IF NOT EXISTS voter (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    has_voted BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS candidate (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    party VARCHAR(255),
+    votes INT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS vote (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    voter_id INT NOT NULL,
+    candidate_id INT NOT NULL,
+    FOREIGN KEY (voter_id) REFERENCES Voter(id),
+    FOREIGN KEY (candidate_id) REFERENCES Candidate(id)
+);
