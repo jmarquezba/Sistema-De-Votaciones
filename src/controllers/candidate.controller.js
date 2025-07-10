@@ -10,7 +10,9 @@ export const getAllCandidates = async (req, res) => {
 export const registerCandidate = async (req, res) => {
     const { name, party } = req.body
 
-    const verifyVoter = await voter.findOne({ where: { name : { [Op.iLike]: name }}})
+    console.log(name, party)
+
+    const verifyVoter = await voter.findOne({ where: { name : { [Op.eq]: name }}})
     if (verifyVoter) return res.status(400).json({ message: 'Un votante no puede registrarse como candidato' })
     
     const newCandidate = await candidate.create({ name, party })
